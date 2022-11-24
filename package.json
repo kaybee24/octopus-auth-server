@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "build",
     "dev": "nodemon --es-module-specifier-resolution=node index.js",
     "file-server": "nodemon serverWithFileUpload.js"
   },
