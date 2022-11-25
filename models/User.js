@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
 )
 
 UserSchema.pre("save", function (next) {
-  var user = this
+  let user = this
   if (!user.isModified("password")) return next()
 
   bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
@@ -32,7 +32,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
     if (err) {
       return callback(err)
     } else if (!user) {
-      var err = new Error("User not found.")
+      let err = new Error("User not found.")
       err.status = 401
       return callback(err)
     }
@@ -43,7 +43,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
       if (result === true) {
         return callback(null, user)
       } else {
-        var err = new Error("Incorrect password.")
+        let err = new Error("Incorrect password.")
         err.status = 402
         return callback(err)
       }
