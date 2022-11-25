@@ -1,7 +1,7 @@
 {
-  "name": "express-mongo",
+  "name": "octopus-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full stack project is a social networking project aimed at solving environmental problems. The idea is that people can register on the site and attend events, for example, where people will gather in a certain place and pick up litter.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "file-server": "nodemon serverWithFileUpload.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Katrin Baier, Marina Ilyushina and Samin Fateh",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
