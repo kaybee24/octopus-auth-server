@@ -1,5 +1,4 @@
-import express from  "express"
-import Message from  "../models/Message"
+import Message from "../models/Message"
 
 async function getAllMessages(request, response) {
   try {
@@ -42,27 +41,11 @@ async function getMessage(request, response) {
   const message = await Message.find({ _id: request.params.id })
   response.json(message)
 }
-async function updateMessage(request, response) {
-  const message = await Message.findOneAndUpdate(
-    { _id: request.params.id },
-    request.body,
-    {
-      new: true,
-    }
-  )
-  response.json(message)
-}
-async function deleteMessage(request, response) {
-  const message = await Message.findByIdAndDelete(request.params.id)
-  response.json(message)
-}
 
 const MessageController = {
   getAllMessages,
   createMessage,
   getMessage,
-  updateMessage,
-  deleteMessage,
 }
 
 export default MessageController
