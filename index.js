@@ -4,6 +4,7 @@ import connectToDB from "./models/index"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import messageRouter from "./routes/Message"
+import postRouter from "./routes/Post"
 import userRouter from "./routes/User"
 import * as jwt from "./utilities/jwt"
 import chalk from "chalk"
@@ -28,6 +29,9 @@ app.use(jwt.decodeToken)
 
 // AUTHENTICATION
 app.use("/users", userRouter)
+
+// POSTS
+app.use("/posts", postRouter)
 
 // SIMPLE CRUD EXAMPLE
 app.use("/messages", messageRouter)
