@@ -60,7 +60,7 @@ export const login = async (req, res) => {
           .send({
             message: "User logged in successfully",
             success: true,
-            data: user,
+            username: user.name,
           })
       }
     })
