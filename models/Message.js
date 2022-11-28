@@ -1,9 +1,9 @@
-import mongoose from  "mongoose"
+import mongoose from "mongoose"
 
 const MessageSchema = new mongoose.Schema(
   {
-    to: { required: true, type: String },
-    message: { required: true, type: String },
+/*     to: { required: true, type: String },
+ */    message: { required: true, type: String },
     user: {
       required: true,
       type: mongoose.Schema.Types.ObjectId,

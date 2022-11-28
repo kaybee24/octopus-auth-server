@@ -102,7 +102,7 @@ export const me = async (req, res) => {
         res.send({
           message: "User found",
           success: true,
-          username: user.name,
+          data: user,
         })
       }
     } catch (error) {
