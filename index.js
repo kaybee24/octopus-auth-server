@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors({
-  origin: CLIENT_API,
+  origin: process.env.CLIENT_URL,
   credentials: true,
 }
 ))
