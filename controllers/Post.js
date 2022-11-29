@@ -3,7 +3,7 @@ import Post from "../models/Post"
 async function getAllPosts(request, response) {
     try {
         if (request.token?.id) {
-            const messages = await Post.find({ user: request.token.id })
+            const messages = await Post.find()
             response.json({
                 message: "got all your messages",
                 data: messages,
@@ -49,3 +49,4 @@ const PostController = {
 }
 
 export default PostController
+

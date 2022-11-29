@@ -60,7 +60,7 @@ export const login = async (req, res) => {
           .send({
             message: "User logged in successfully",
             success: true,
-            username: user.name,
+            data: user.name,
           })
       }
     })
@@ -136,3 +136,4 @@ export const deleteUser = async (req, res) => {
   const user = await User.findByIdAndDelete(req.params.id)
   res.json(user)
 }
+
