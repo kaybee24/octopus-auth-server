@@ -11,6 +11,7 @@ import chalk from "chalk"
 
 const app = express()
 const PORT = process.env.PORT || 8080
+const CLIENT_API = process.env.CLIENT_API
 
 // MIDDLEWARES 
 app.use(cookieParser());
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: CLIENT_API,
   credentials: true,
 }
 ))
