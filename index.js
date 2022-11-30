@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import messageRouter from "./routes/Message"
 import postRouter from "./routes/Post"
+import eventRouter from "./routes/Event"
 import userRouter from "./routes/User"
 import * as jwt from "./utilities/jwt"
 import chalk from "chalk"
@@ -33,6 +34,9 @@ app.use("/users", userRouter)
 
 // POSTS
 app.use("/posts", postRouter)
+
+// EVENTS
+app.use("/events", eventRouter)
 
 // SIMPLE CRUD EXAMPLE
 app.use("/messages", messageRouter)
