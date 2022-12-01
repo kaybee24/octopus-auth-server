@@ -3,7 +3,9 @@ import Post from "../models/Post"
 async function getAllPosts(request, response) {
     try {
         if (request.token?.id) {
-            const posts = await Post.find()
+            const posts = await Post.find({
+                message: new RegExp(request.query.search, "i")
+            })
             response.json({
                 message: "got all your messages",
                 data: posts,
