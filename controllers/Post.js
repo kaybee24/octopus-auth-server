@@ -6,6 +6,8 @@ async function getAllPosts(request, response) {
             const posts = await Post.find({
                 message: new RegExp(request.query.search, "i")
             })
+            .skip((request.query.offset - 1) * 10)
+            .limit(10)
             response.json({
                 message: "got all your messages",
                 data: posts,
@@ -36,7 +38,7 @@ async function createPost(request, response) {
     }
 
     const res = await Post.create(postmsg)
-    response.send(res)
+    response.send({success:true, newDoc:res})
 }
 
 async function getPost(request, response) {
