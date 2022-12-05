@@ -6,7 +6,9 @@
   "description": "Full stack project is a social networking project aimed at solving environmental problems. The idea is that people can register on the site and attend events, for example, where people will gather in a certain place and pick up litter.",
   "scripts": {
     "dev": "nodemon --es-module-specifier-resolution=node index.js",
-    "file-server": "nodemon serverWithFileUpload.js"
+    "file-server": "nodemon serverWithFileUpload.js",
+    "lint": "eslint routes/**/*.js controllers/**/*.js utilities/**/*.js models/**/*.js",
+    "lint:fix": "eslint routes/**/*.js controllers/**/*.js utilities/**/*.js models/**/*.js --fix"
   },
   "keywords": [],
   "author": "Katrin Baier, Marina Ilyushina and Samin Fateh",
@@ -25,7 +27,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11"
   }
 }

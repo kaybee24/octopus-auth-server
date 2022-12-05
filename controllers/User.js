@@ -1,11 +1,11 @@
-import User from "../models/User"
-import * as jwt from "../utilities/jwt"
+import User from '../models/User'
+import * as jwt from '../utilities/jwt'
 
 const cookieConfig = {
   maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
   httpOnly: false,
   secure: false,
-  sameSite: 'lax',
+  sameSite: 'lax'
 }
 
 export const getAllUsers = async (req, res) => {
@@ -18,25 +18,25 @@ export const createUser = async (req, res) => { // create a new user
     res
       .cookie('token', jwt.generateToken({ id: user._id }), cookieConfig)
       .send({
-        message: "User logged in successfully",
+        message: 'User logged in successfully',
         success: true,
-        data: user,
+        data: user
       })
   } catch (error) {
     switch (error.code) {
       case 11000:
         res.status(400).send({
           message:
-            "User with this email already exists, please try logging in",
+            'User with this email already exists, please try logging in',
           success: false,
-          data: error,
+          data: error
         })
         break
       default:
         res.status(400).send({
           message: error.message,
           success: false,
-          data: error,
+          data: error
         })
     }
   }
@@ -51,27 +51,27 @@ export const login = async (req, res) => {
         res.send({
           message: error.message,
           success: false,
-          data: error,
+          data: error
         })
       } else {
-        console.log(req.body.email + " logged in successfully")
+        console.log(req.body.email + ' logged in successfully')
         res
           .cookie('token', jwt.generateToken({ id: user._id }), cookieConfig)
           .send({
-            message: "User logged in successfully",
+            message: 'User logged in successfully',
             success: true,
-            data: user.name,
+            data: user.name
           })
       }
     })
   } catch (error) {
     switch (error.code) {
       default:
-        console.log(req.body.email + " failed to login  ")
+        console.log(req.body.email + ' failed to login  ')
         res.status(400).send({
           message: error.message,
           success: false,
-          data: error,
+          data: error
         })
     }
   }
@@ -80,42 +80,41 @@ export const login = async (req, res) => {
 export const logout = async (req, res) => {
   res.clearCookie('token')
   res.send({
-    message: "User logged out successfully",
+    message: 'User logged out successfully',
     success: true,
-    data: null,
+    data: null
   })
 }
 
-
 export const me = async (req, res) => {
   if (req.token?.id) {
-    console.log(req.token.id, "is logged in")
+    console.log(req.token.id, 'is logged in')
     try {
       const user = await User.findById(req.token.id)
       if (!user) {
         res.status(404).send({
-          message: "User not found",
+          message: 'User not found',
           success: false,
-          data: user,
+          data: user
         })
       } else {
         res.send({
-          message: "User found",
+          message: 'User found',
           success: true,
-          data: user,
+          data: user
         })
       }
     } catch (error) {
       res.status(400).send({
         message: error.message,
         success: false,
-        data: error,
+        data: error
       })
     }
   } else {
     res.send({
-      message: "You are not logged in",
-      success: false,
+      message: 'You are not logged in',
+      success: false
     })
   }
 }
@@ -127,7 +126,7 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const user = await User.findOneAndUpdate({ _id: req.params.id }, req.body, {
-    new: true,
+    new: true
   })
   res.json(user)
 }
@@ -136,4 +135,3 @@ export const deleteUser = async (req, res) => {
   const user = await User.findByIdAndDelete(req.params.id)
   res.json(user)
 }
-
