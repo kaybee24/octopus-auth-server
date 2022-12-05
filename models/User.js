@@ -1,19 +1,19 @@
-import mongoose from  "mongoose"
-import bcrypt from  "bcrypt"
+import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
 const SALT_WORK_FACTOR = 10
 
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String },
     email: { required: true, type: String, unique: true },
-    password: { required: true, type: String },
+    password: { required: true, type: String }
   },
   { timestamps: true }
 )
 
-UserSchema.pre("save", function (next) {
-  let user = this
-  if (!user.isModified("password")) return next()
+UserSchema.pre('save', function (next) {
+  const user = this
+  if (!user.isModified('password')) return next()
 
   bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
     if (err) return next(err)
@@ -28,11 +28,11 @@ UserSchema.pre("save", function (next) {
 })
 
 UserSchema.statics.authenticate = function (email, password, callback) {
-  User.findOne({ email: email }).exec(function (err, user) {
+  User.findOne({ email }).exec(function (err, user) {
     if (err) {
       return callback(err)
     } else if (!user) {
-      let err = new Error("User not found.")
+      const err = new Error('User not found.')
       err.status = 401
       return callback(err)
     }
@@ -43,7 +43,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
       if (result === true) {
         return callback(null, user)
       } else {
-        let err = new Error("Incorrect password.")
+        const err = new Error('Incorrect password.')
         err.status = 402
         return callback(err)
       }
@@ -51,6 +51,6 @@ UserSchema.statics.authenticate = function (email, password, callback) {
   })
 }
 
-const User = mongoose.model("User", UserSchema)
+const User = mongoose.model('User', UserSchema)
 
 export default User
