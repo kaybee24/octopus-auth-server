@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Full stack project is a social networking project aimed at solving environmental problems. The idea is that people can register on the site and attend events, for example, where people will gather in a certain place and pick up litter.",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon --es-module-specifier-resolution=node index.js",
     "file-server": "nodemon serverWithFileUpload.js",
     "lint": "eslint routes/**/*.js controllers/**/*.js utilities/**/*.js models/**/*.js",
