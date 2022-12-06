@@ -1,11 +1,11 @@
 import User from '../models/User.mjs'
-import * as jwt from '../utilities/jwt.mjs'
+import * as jwt from '../utilities/jwt'
 
 const cookieConfig = {
   maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
   httpOnly: false,
   secure: false,
-  sameSite: 'lax'
+  sameSite: 'none'
 }
 
 export const getAllUsers = async (req, res) => {

@@ -17,7 +17,7 @@ const CLIENT_API = process.env.CLIENT_API
 // MIDDLEWARES
 app.use(cookieParser())
 app.use((req, res, next) => {
-  console.log(chalk.blue(req.method), chalk.white(req.url))
+  // console.log(chalk.blue(req.method), chalk.white(req.url))
   next()
 })
 

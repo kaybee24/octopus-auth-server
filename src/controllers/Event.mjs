@@ -3,15 +3,17 @@ import Event from '../models/Event.mjs'
 async function getAllEvents (request, response) {
   try {
     if (request.token?.id) {
-      const events = await Event.find()
+      const posts = await Event.find({
+        message: new RegExp(request.query.search, 'i')
+      })
       response.json({
-        message: 'got all your events',
-        data: events,
+        message: 'got all your messages',
+        data: posts,
         success: true
       })
     } else {
       response.status(401).send({
-        message: 'You must be logged in to see events',
+        message: 'You must be logged in to get messages',
         success: false,
         data: null
       })
