@@ -1,6 +1,6 @@
 import express from "express"
 import "dotenv/config"
-import connectToDB from "./models/index"
+import connectToDB from "./models"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import messageRouter from "./routes/Message"
