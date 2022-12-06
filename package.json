@@ -1,15 +1,15 @@
 {
   "name": "octopus-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "type": "module",
   "description": "Full stack project is a social networking project aimed at solving environmental problems. The idea is that people can register on the site and attend events, for example, where people will gather in a certain place and pick up litter.",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon --es-module-specifier-resolution=node src/index.js",
-    "file-server": "nodemon serverWithFileUpload.js",
-    "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js --fix"
+    "start": "node src/index.mjs",
+    "dev": "nodemon --es-module-specifier-resolution=node src/index.mjs",
+    "file-server": "nodemon serverWithFileUpload.mjs",
+    "lint": "eslint src/**/*.mjs",
+    "lint:fix": "eslint src/**/*.mjs --fix"
   },
   "keywords": [],
   "author": "Katrin Baier, Marina Ilyushina and Samin Fateh",
