@@ -1,5 +1,5 @@
 import express from 'express'
-import EventController from '../controllers/Event'
+import EventController from '../controllers/Event.mjs'
 import * as auth from '../utilities/auth.mjs'
 
 const router = express.Router()

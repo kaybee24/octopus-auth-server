@@ -1,4 +1,4 @@
-import Post from '../models/Post'
+import Post from '../models/Post.mjs'
 
 async function getAllPosts (request, response) {
   try {

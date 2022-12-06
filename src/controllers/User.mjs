@@ -1,5 +1,5 @@
-import User from '../models/User'
-import * as jwt from '../utilities/jwt'
+import User from '../models/User.mjs'
+import * as jwt from '../utilities/jwt.mjs'
 
 const cookieConfig = {
   maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week

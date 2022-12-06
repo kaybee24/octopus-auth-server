@@ -5,7 +5,7 @@ import {
   login,
   logout,
   me
-} from '../controllers/User'
+} from '../controllers/User.mjs'
 
 const router = express.Router()
 
