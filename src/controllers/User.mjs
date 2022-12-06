@@ -4,8 +4,8 @@ import * as jwt from '../utilities/jwt'
 const cookieConfig = {
   maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
   httpOnly: false,
-  secure: true,
-  sameSite: 'none'
+  secure: process.env.ENVIRONMENT !== 'development',
+  sameSite: process.env.ENVIRONMENT === 'development' ? 'lax' : 'none'
 }
 
 export const getAllUsers = async (req, res) => {
