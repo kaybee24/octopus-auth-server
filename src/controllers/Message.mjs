@@ -1,4 +1,4 @@
-import Message from '../models/Message'
+import Message from '../models/Message.mjs'
 
 async function getAllMessages (request, response) {
   try {

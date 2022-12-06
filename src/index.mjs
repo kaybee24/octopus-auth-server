@@ -7,7 +7,7 @@ import messageRouter from './routes/Message'
 import postRouter from './routes/Post'
 import eventRouter from './routes/Event'
 import userRouter from './routes/User'
-import * as jwt from './utilities/jwt'
+import * as jwt from './utilities/jwt.mjs'
 import chalk from 'chalk'
 
 const app = express()

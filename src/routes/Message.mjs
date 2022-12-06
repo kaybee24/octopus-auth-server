@@ -1,6 +1,6 @@
 import express from 'express'
 import MessageController from '../controllers/Message'
-import * as auth from '../utilities/auth'
+import * as auth from '../utilities/auth.mjs'
 
 const router = express.Router()
 
