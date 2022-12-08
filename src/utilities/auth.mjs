@@ -1,9 +1,11 @@
 
 function isLoggedIn (req, res, next) {
-  console.log(req.token, req.token.id)
   if (req.token && req.token.id) {
+    console.log("X logged in")
+    console.log(req.token, req.token.id)
     next()
   } else {
+    console.log("X not logged in")
     res.sendStatus(401)
   }
   // has token

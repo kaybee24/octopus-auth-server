@@ -36,7 +36,9 @@ async function createPost (request, response) {
   }
   try {
     const res = await Post.create(postmsg)
-    response.send({ success: true, newDoc: res })
+    console.log("-------------------------")
+    console.log(res)
+    response.send({ success: true, newDoc: res})
   } catch (error) {
     // TODO check kind of error
 

@@ -16,6 +16,12 @@ PostSchema.pre('find', function () {
   this.populate('user')
 })
 
+
+PostSchema.pre('save', function () {
+  this.populate('user')
+})
+
+
 const Post = mongoose.model('Post', PostSchema)
 
 export default Post
